@@ -29,15 +29,15 @@ function jsonDifferenceChecker (initial, update) {
 
 //---------------- FINDING THE DIFFERENCE BETWEEN THE INITIAL AND UPDATED ELEMENTS USING THE IDS ---------------------
 
-        // array of unique initial IDs
-        if (!(initialIDs.includes(initial[i].id))) {
-         initialIDs.push(initial[i].id);
+          // function to get array of unique initial & update IDs
+          function uniqueIDs(arr, value) {
+            if (!(arr.includes(value))) {
+                arr.push(value);
+            }
         }
-
-        // array of unique update IDs
-        if (!(updateIDs.includes(update[j].id))) {
-          updateIDs.push(update[j].id);
-        } 
+        
+        uniqueIDs(initialIDs, initial[i].id);
+        uniqueIDs(updateIDs, update[i].id);
 
         // function to get an array of the difference
         subtraction = () => {
